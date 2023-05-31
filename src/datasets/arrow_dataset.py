@@ -5580,7 +5580,7 @@ class Dataset(DatasetInfoMixin, IndexableMixin, TensorflowDatasetMixin):
 
         ```python
         >>> ds = datasets.load_dataset('crime_and_punish', split='train')
-        >>> ds_with_embeddings = ds.map(lambda example: {'embeddings': embed(example['line']}))
+        >>> ds_with_embeddings = ds.map(lambda example: {'embeddings': embed(example['line'])})
         >>> ds_with_embeddings.add_faiss_index(column='embeddings')
         >>> # query
         >>> scores, retrieved_examples = ds_with_embeddings.get_nearest_examples('embeddings', embed('my new query'), k=10)
